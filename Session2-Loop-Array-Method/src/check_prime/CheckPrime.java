@@ -5,25 +5,25 @@ import java.util.Scanner;
 public class CheckPrime {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter number: ");
         int n = sc.nextInt();
-        int i;
+        if(checkPrime(n)){
+            System.out.println(n+" is prime");
+        } else {
+            System.out.println(n+" is not prime");
+        }
+
+    }
+
+    public static boolean checkPrime(int n){
         if(n<2){
-            System.out.println(n+" is not a prime number");
-        } else{
-            boolean check = true;
-            i = 2;
-            while(i<=Math.sqrt(n)){
-                if(n%i==0){
-                    check = false;
-                    break;
-                }
-                i++;
-            }
-            if(check){
-                System.out.println(n+" is a prime number");
-            } else {
-                System.out.printf(n+" is not a prime number");
+            return false;
+        }
+        for (int i = 2; i < Math.sqrt(n) ; i++) {
+            if(n%i==0){
+                return false;
             }
         }
+        return true;
     }
 }
